@@ -44,7 +44,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ env.IMAGE_NAME }}:${{ github.event.inputs.xrdp_version }}
+          tags: ghcr.io/${{ env.IMAGE_NAME }}:${{ github.event.inputs.git_branch }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             XRDP_VERSION=${{ github.event.inputs.xrdp_version }}
