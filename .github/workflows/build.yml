@@ -6,7 +6,7 @@ on:
       git_repo:
         description: 'GIT REPO'
         required: true
-        default: 'https://github.com/matt335672/xrdp.git'
+        default: 'https://github.com/lancard/xrdp.git'
       git_branch:
         description: 'BRANCH NAME'
         required: true
