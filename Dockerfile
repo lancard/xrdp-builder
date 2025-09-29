@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y git wget sudo systemctl vim nano \ 
+RUN apt-get install -y git wget sudo systemctl vim nano ssl-cert \ 
     xfce4 xfce4-goodies x11-xserver-utils dbus-x11
 
 WORKDIR /root
