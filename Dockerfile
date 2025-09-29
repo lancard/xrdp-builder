@@ -9,8 +9,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y git wget sudo systemctl vim nano ssl-cert \ 
-    xfce4 xfce4-goodies x11-xserver-utils dbus-x11
+RUN apt-get install -y git wget sudo systemctl net-tools vim nano ssl-cert \ 
+    xfce4 xfce4-goodies x11-xserver-utils dbus-x11 xorgxrdp xrdp tumbler \
+    ibus ibus-gtk3 fcitx5-hangul fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-gtk4 fcitx5-frontend-qt5 fonts-noto-cjk
 
 WORKDIR /root
 
@@ -24,8 +25,8 @@ WORKDIR /root/xrdp
 RUN ./bootstrap
 RUN ./configure --with-systemdsystemunitdir=/usr/lib/systemd/system --enable-ibus --enable-ipv6 --enable-jpeg --enable-fuse --enable-mp3lame --enable-fdkaac --enable-opus --enable-rfxcodec --enable-painter --enable-pixman --enable-utmp -with-imlib2 --with-freetype2 --enable-tests --enable-x264 --enable-openh264 --enable-vsock
 RUN make
-RUN make install
-RUN ln -s /usr/local/sbin/xrdp /usr/sbin
-RUN ln -s /usr/local/sbin/xrdp-sesman /usr/sbin
+# RUN make install
+# RUN ln -s /usr/local/sbin/xrdp /usr/sbin
+# RUN ln -s /usr/local/sbin/xrdp-sesman /usr/sbin
 
 CMD tail -f /dev/null
