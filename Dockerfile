@@ -1,4 +1,4 @@
-FROM debian:trixie
+FROM ubuntu:latest
 
 ARG GIT_REPO=https://github.com/neutrinolabs/xrdp.git
 ARG GIT_BRANCH=devel
