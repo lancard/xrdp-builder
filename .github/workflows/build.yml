@@ -1,12 +1,12 @@
 name: build
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
   workflow_dispatch:
-    
+    inputs:
+      xrdp_version:
+        description: 'XRDP VERSION'
+        required: true
+        default: '0.10.4.1'
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
