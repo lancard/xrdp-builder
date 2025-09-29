@@ -1,9 +1,9 @@
 FROM ubuntu:latest
 
-
-ENV DEBIAN_FRONTEND=noninteractive
-ENV XRDP_VERSION=0.10.4.1
+ARG XRDP_VERSION=0.10.4.1
+ENV XRDP_VERSION=${XRDP_VERSION}
 ENV XRDP_SRC_DIR=/root/xrdp
+ENV DEBIAN_FRONTEND=noninteractive
 
 
 RUN apt-get update
