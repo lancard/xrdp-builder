@@ -3,10 +3,15 @@ name: build
 on:
   workflow_dispatch:
     inputs:
-      xrdp_version:
-        description: 'XRDP VERSION'
+      git_repo:
+        description: 'GIT REPO'
         required: true
-        default: '0.10.4.1'
+        default: 'https://github.com/matt335672/xrdp.git'
+      git_branch:
+        description: 'BRANCH NAME'
+        required: true
+        default: 'korean_keyboard'
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
@@ -41,4 +46,7 @@ jobs:
           push: true
           tags: ghcr.io/${{ env.IMAGE_NAME }}:${{ github.event.inputs.xrdp_version }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: XRDP_VERSION=${{ github.event.inputs.xrdp_version }}       
+          build-args: |
+            XRDP_VERSION=${{ github.event.inputs.xrdp_version }}
+            GIT_REPO=${{ github.event.inputs.git_repo }}
+            GIT_BRANCH=${{ github.event.inputs.git_branch }}
