@@ -39,5 +39,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ env.IMAGE_NAME }}:${{ github.event.inputs.xrdp_version }}
           labels: ${{ steps.meta.outputs.labels }}
