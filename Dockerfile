@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get git install wget sudo systemctl -y
+RUN apt-get install -y git wget sudo systemctl
 
 WORKDIR /root
 
