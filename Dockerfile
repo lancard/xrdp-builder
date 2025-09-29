@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM debian:trixie
 
 ARG GIT_REPO=https://github.com/neutrinolabs/xrdp.git
 ARG GIT_BRANCH=devel
@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y git wget sudo systemctl \ 
+RUN apt-get install -y git wget sudo systemctl vim nano \ 
     xfce4 xfce4-goodies x11-xserver-utils dbus-x11
 
 WORKDIR /root
