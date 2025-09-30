@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM lancard/xwindow-korean
 
 ARG GIT_REPO=https://github.com/neutrinolabs/xrdp.git
 ARG GIT_BRANCH=devel
@@ -6,12 +6,6 @@ ENV GIT_REPO=${GIT_REPO}
 ENV GIT_BRANCH=${GIT_BRANCH}
 
 ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get install -y git wget sudo systemctl net-tools vim nano ssl-cert \ 
-    xfce4 xfce4-goodies x11-xserver-utils dbus-x11 xorgxrdp xrdp tumbler \
-    ibus ibus-gtk3 fcitx5-hangul fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-gtk4 fcitx5-frontend-qt5 fonts-noto-cjk
 
 WORKDIR /root
 
@@ -29,4 +23,4 @@ RUN make
 # RUN ln -s /usr/local/sbin/xrdp /usr/sbin
 # RUN ln -s /usr/local/sbin/xrdp-sesman /usr/sbin
 
-CMD tail -f /dev/null
+ENTRYPOINT tail -f /dev/null
